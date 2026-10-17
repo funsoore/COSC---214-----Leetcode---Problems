@@ -1,0 +1,21 @@
+import java.util.Stack;
+
+public class Main {
+    public static void main(String[] args) {
+
+        // Create a Stack to store strings
+        Stack<String> stack = new Stack<>();
+
+        // Store 5 strings in the Stack
+        stack.push("Pepper");
+        stack.push("Tomato");
+        stack.push("Radish");
+        stack.push("Grapes");
+        stack.push("Mango");
+
+        // Print the 5 strings using a loop
+        for (int i = 0; i < stack.size(); i++) {
+            System.out.println(stack.get(i));
+        }
+    }
+}
