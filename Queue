@@ -1,0 +1,22 @@
+import java.util.Deque;
+import java.util.ArrayDeque;
+
+public class Main {
+    public static void main(String[] args) {
+
+        // Create a queue to store strings
+        Deque<String> queue = new ArrayDeque<>();
+
+        // Store 5 strings in the queue
+        queue.add("Apple");
+        queue.add("Banana");
+        queue.add("Orange");
+        queue.add("Grapes");
+        queue.add("Mango");
+
+        // Print the 5 strings using a loop
+        for (String fruit : queue) {
+            System.out.println(fruit);
+        }
+    }
+}
