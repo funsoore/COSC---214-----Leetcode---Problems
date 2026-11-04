@@ -1,0 +1,24 @@
+import java.util.HashMap;
+
+public class BasicHashMapExample {
+    public static void main(String[] args) {
+        HashMap<Integer, String> students = new HashMap<>();
+
+        // Insert
+        students.put(101, "Alice");
+        students.put(102, "Bob");
+        students.put(103, "Charlie");
+
+        // Retrieve
+        System.out.println("Student 101: " + students.get(101));
+
+        // Update
+        students.put(102, "Robert");
+
+        // Remove
+        students.remove(103);
+
+        // Display final map
+        System.out.println(students);
+    }
+}
