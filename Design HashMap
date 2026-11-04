@@ -1,0 +1,91 @@
+class MyHashMap {
+
+   class Node {
+    int key;
+    int value;
+    Node next;
+
+    Node(int key, int value) {
+        this.key = key;
+        this.value = value;
+        this.next = null;
+    }
+}
+
+private Node[] buckets;
+private int size;
+
+// Initialize the HashMap
+public MyHashMap() {
+    size = 1000;
+    buckets = new Node[size];
+}
+
+// Hash function determines which bucket to use
+private int hash(int key) {
+    return key % size;
+}
+
+// Insert or update a key-value pair
+public void put(int key, int value) {
+    int index = hash(key);
+
+    Node current = buckets[index];
+
+    // Check if key already exists
+    while (current != null) {
+        if (current.key == key) {
+            current.value = value;
+            return;
+        }
+        current = current.next;
+    }
+
+    // Key does not exist, so add a new node
+    Node newNode = new Node(key, value);
+    newNode.next = buckets[index];
+    buckets[index] = newNode;
+}
+
+// Retrieve the value associated with a key
+public int get(int key) {
+    int index = hash(key);
+
+    Node current = buckets[index];
+
+    while (current != null) {
+        if (current.key == key) {
+            return current.value;
+        }
+        current = current.next;
+    }
+
+    return -1;
+}
+
+// Remove a key-value pair
+public void remove(int key) {
+    int index = hash(key);
+
+    Node current = buckets[index];
+    Node previous = null;
+
+    while (current != null) {
+        if (current.key == key) {
+
+            // If the node is the first node in the bucket
+            if (previous == null) {
+                buckets[index] = current.next;
+            } else {
+                previous.next = current.next;
+            }
+
+            return;
+        }
+
+        previous = current;
+        current = current.next;
+    }
+}
+
+}
