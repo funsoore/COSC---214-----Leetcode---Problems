@@ -1,24 +1,20 @@
 import java.util.HashMap;
 
-public class BasicHashMapExample {
+public class FrequencyCount {
+
+    public static HashMap<Integer, Integer> frequencyCount(int[] nums) {
+        HashMap<Integer, Integer> freq = new HashMap<>();
+
+        for (int num : nums) {
+            freq.put(num, freq.getOrDefault(num, 0) + 1);
+        }
+
+        return freq;
+    }
+
     public static void main(String[] args) {
-        HashMap<Integer, String> students = new HashMap<>();
+        int[] nums = {1, 2, 2, 3, 1, 1, 4};
 
-        // Insert
-        students.put(101, "Alice");
-        students.put(102, "Bob");
-        students.put(103, "Charlie");
-
-        // Retrieve
-        System.out.println("Student 101: " + students.get(101));
-
-        // Update
-        students.put(102, "Robert");
-
-        // Remove
-        students.remove(103);
-
-        // Display final map
-        System.out.println(students);
+        System.out.println(frequencyCount(nums));
     }
 }
